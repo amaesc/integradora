@@ -1,25 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LoginSignup from './Components/LoginSignup/LoginSignup';
+import AdminPage from './Components/AdminPage/AdminPage';
+import Map from './Components/Map/Map';
+import { store } from './Store/bookStore'
+
+import { LanguageProvider } from './Context/LanguageContext'
 
 function App() {
+  const {count, increment, decrement, position, setRoomId} = store(state => state)
+  console.log(count)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LanguageProvider>
+      <BrowserRouter>
+          <Routes>
+            <Route index path="/" element={<LoginSignup/>}/>
+            <Route path='/administrator' element={<AdminPage/>}/>
+            <Route path='/masterPage' element={<Map/>}/>
+            <Route path='/zustand' element={
+              <div>
+                zustand {position?.roomId}
+                <button 
+                  onClick={() => {
+                    setRoomId('TEST 02')
+                  }}
+                >
+                  TEST
+                </button>
+              </div>
+            } />
+          </Routes>
+      </BrowserRouter>
+    </LanguageProvider>
   );
-}
+};
 
 export default App;

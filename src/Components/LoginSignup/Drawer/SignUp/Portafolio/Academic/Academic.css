@@ -1,0 +1,139 @@
+.fontAwesomeIcon{
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8rem;
+    color: white;
+}
+
+.input{
+    display: flex; align-items: center;
+    margin: auto;
+    width: 480px; height: 80px;
+    background: #eaeaea;
+    border-radius: 6px;
+}
+
+.input img{
+    margin: 0px 30px;
+}
+
+.input input{
+    height: 50px; width: 400px;
+    background: transparent;
+    border: none; outline: none;
+    color: #797979;
+    font-size: 19px;
+}
+
+.drawerAcademic {
+    position: fixed; bottom: -100%; left: 30%; right: 0; z-index: 1002; 
+    width: 40%; height: 700px;
+    border-radius: 15px;
+    background-color: white; color: white;
+    transition: bottom 0.5s ease-in-out;
+    display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr);
+    gap: 10px; padding: 10px;
+}
+
+.drawerSquare {
+    background-color: red;
+    width: 100%; height: 100%;
+    display: flex; text-align: center; justify-content: center; flex-direction: column;
+}
+
+.drawerSquare .fontAwesomeIcon{
+    cursor: pointer;
+}
+
+.drawerSquare .input{
+    width: 90%; height: 90%;
+}
+
+.drawerSquare .input textarea{
+    width: 85%; height: 80%;
+    border-radius: 15px; border: 0;
+    margin: 10px; padding: 10px;
+}
+
+.drawerAcademic.open {
+    bottom: 0;
+}
+
+.drawerContentAcademic{
+    padding: 20px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    height: 100%;
+}
+
+.closeButton {
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.menuItemsAcademic{
+    display: flex; flex-direction: column;
+    gap: 15px;
+}
+
+.item {
+    cursor: pointer;
+    display: flex; align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.item:hover {
+    background-color: #444;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.drawerSquare {
+    background-color: red;
+    width: 100%; height: 100%;
+    display: flex; text-align: center; justify-content: center; flex-direction: column;
+}
+
+.drawerSquareSignUp:nth-child(1) {
+    background-color: #32CD32; grid-column: 1/3; grid-row: 1/2;
+    border-top-left-radius: 15px;
+}
+.drawerSquareSignUp:nth-child(2) {
+    background-color: #FF6347; grid-column: 3/4; grid-row: 1/2;
+    border-top-right-radius: 15px;
+}
+.drawerSquareSignUp:nth-child(3) {
+    background-color: #4682B4; grid-column: 1/4; grid-row: 2/3;
+}
+.drawerSquareSignUp:nth-child(4) {
+    background-color: #000000; grid-column: 2/3; grid-row: 3/4;
+}
+
+
+.drawerSquare .fontAwesomeIcon{
+    cursor: pointer;
+}
+
+.drawerSquare .input{
+    width: 90%; height: 90%;
+}
+
+.drawerSquare .input textarea{
+    width: 85%; height: 80%;
+    border-radius: 15px; border: 0;
+    margin: 10px; padding: 10px;
+}

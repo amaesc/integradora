@@ -5,6 +5,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  background: url('../src/Components/Assets/Map.png');
+  background: white;
+  background-size: cover;
+  background-position: center;
+}
+
+
+body::before {
+  content: "";
+  position: absolute; /* Hace que se superponga sobre el fondo */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0); /* Capa oscura con opacidad */
+  z-index: -1; /* Asegura que la capa esté detrás del contenido */
 }
 
 code {
