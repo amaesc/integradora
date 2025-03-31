@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import './SignUp.css'
-
+import { store } from "../../../../../Store/bookStore"
 import { Formik, Field, Form } from 'formik';
+import './SignUp.css'
 
 /*FONT AWESOME  ICONS*/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 
-const DrawerSignUp = ({ drawerOpenSignUp, toggleDrawerSignUp }) => {
+const DrawerSignUp = () => {
+  const { editUserDrawer, setEditUserDrawer } = store(state => state);
+  console.log(editUserDrawer.status);
   const [isPersonalOverlayVisible, setIsPersonalOverlayVisible] = useState(false);
 
   const closePersonalOverlay = () => {
@@ -36,14 +38,15 @@ const DrawerSignUp = ({ drawerOpenSignUp, toggleDrawerSignUp }) => {
   };
 
   return (
-    <div className={`drawerSignUp ${drawerOpenSignUp ? 'open' : ''}`}>
-      <div className="drawerSquare">
+    <div className={`drawerEdit ${editUserDrawer.status ? 'open' : ''}`}>
+      <div className="drawerSquareEdit">
         <Formik
           initialValues={{
             email: '',
             firstName: '',
             middleName: '',
-            lastName: ''
+            lastName: '',
+            isAdmin: false
           }}
           validate={(values) => {
             const errors = {};
@@ -66,20 +69,20 @@ const DrawerSignUp = ({ drawerOpenSignUp, toggleDrawerSignUp }) => {
             <Form className='formGridUser'>
 
               <div style={{ display: "flex", maxHeight: "100px", gap: "15px" }}>
-                <div className="drawerSquare" style={{ background: "#32CD32" }}><h1>SIGN UP</h1></div>
-                <div className="drawerSquare">
-                  <div className='fontAwesomeIcon' onClick={toggleDrawerSignUp}>
+                <div className="drawerSquareEdit" style={{ background: "#32CD32" }}><h1>SIGN UP</h1></div>
+                <div className="drawerSquareEdit">
+                  <div className='fontAwesomeIcon' onClick={() => setEditUserDrawer(false)}>
                     <FontAwesomeIcon icon={faXmark} />
                   </div>
                 </div>
               </div>
 
               {/*PERSONAL INFORMATION*/}
-              <div style={{ gridRow: "1/2", gridColumn: "1/4", background: "#4682B4" }}><h1>PERSONAL INFORMATION</h1></div>
+              <div style={{ gridRow: "1/2", gridColumn: "1/4", background: "#4682B4"}}><h1>PERSONAL INFORMATION</h1></div>
               {/*EMAIL*/}
-              <div className='drawerSquare' style={{ background: "#32CD32" }}>
+              <div className='drawerSquareEdit' style={{ background: "#32CD32" }}>
                 <div className="buttonStyleForFormik" style={{}}><h1>Email</h1></div>
-                <div className='drawerSquare'
+                <div className='drawerSquareEdit'
                   style={{
                     gridColumn: "1/2",
                     gridRow: "3/4",
@@ -99,7 +102,7 @@ const DrawerSignUp = ({ drawerOpenSignUp, toggleDrawerSignUp }) => {
                 </div>
               </div>
               {/*FULL NAME*/}
-              <div className="drawerSquare" style={{ background: "#40E0D0" }}>
+              <div className="drawerSquareEdit" style={{ background: "#40E0D0" }}>
                 <div className="buttonStyleForFormik" style={{ background: "transparent" }}><h1>Name</h1></div>
                 <div
                   style={{
@@ -156,7 +159,7 @@ const DrawerSignUp = ({ drawerOpenSignUp, toggleDrawerSignUp }) => {
                 </div>
               </div>
               {/*BIRTHDAY*/}
-              <div className="drawerSquare" style={{ background: "#FF6347" }}>
+              <div className="drawerSquareEdit" style={{ background: "#FF6347" }}>
                 <div className="buttonStyleForFormik" style={{ background: "transparent" }}>
                   <h1>Birthday</h1>
                 </div>
@@ -188,17 +191,32 @@ const DrawerSignUp = ({ drawerOpenSignUp, toggleDrawerSignUp }) => {
               </div>
               {/*IMAGE*/}
               <div className="buttonStyleForFormik" style={{}}>
-                <h1>Image</h1>
+                <h1>Is admin</h1>
               </div>
-              <div className="drawerSquare" style={{}}>
-                <div className='squareButton'>
-                  <h1>HI</h1>
+              <div className="drawerSquareEdit" style={{}}>
+              <div className='drawerSquareEdit'
+                  style={{
+                    gridColumn: "1/2",
+                    gridRow: "3/4",
+                    background: "transparent",
+                    paddingBottom: "10px"
+
+                  }}>
+                  <div className='input'>
+                    <Field
+                      id="email"
+                      type="email"
+                      name="email"
+                      placeholder="Email ID"
+                    />
+                    {touched.email && errors.email && <div style={{ color: 'red' }}>{errors.email}</div>}
+                  </div>
                 </div>
               </div>
               {/*ACADEMIC INFO*/}
               <div style={{ background: "#4682B4" }}><h1>ACADEMIC INFO</h1></div>
               {/*GROUP*/}
-              <div className="drawerSquare" style={{ background: "#FF69B4" }}>
+              <div className="drawerSquareEdit" style={{ background: "#FF69B4" }}>
                 <div className="buttonStyleForFormik" style={{ background: "transparent" }}>
                   <h1>Groups</h1>
                 </div>
@@ -240,7 +258,7 @@ const DrawerSignUp = ({ drawerOpenSignUp, toggleDrawerSignUp }) => {
               </div>
               {/*CONFIRM*/}
               <div className='buttonStyleForFormik' style={{ borderBottomRightRadius: "15px", borderBottomLeftRadius: "15px" }}>
-                <h1>Confirm Sign Up</h1>
+                <h1>Confirm Changes</h1>
               </div>
 
             </Form>

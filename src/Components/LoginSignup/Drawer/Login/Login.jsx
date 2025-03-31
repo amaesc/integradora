@@ -4,33 +4,102 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { Formik, Field, Form } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import { useLanguage } from '../../../../Context/LanguageContext';
+import { store } from '../../../../Store/bookStore'
+
 
 const DrawerLogIn = ({ drawerOpenLogIn, toggleDrawerLogIn }) => {
   const navigate = useNavigate();
-  const { language, changeLanguage } = useLanguage();
+  const { language, setLanguage } = store(state => state);
+  const { user, setUserInformation } = store(state => state);
 
-  const handleLogin = async (values) => {
-    try {
-      const response = await fetch('http://localhost:5000/api/login', {
-        method: 'POST',
+  const setUserCredentialsByDataBase = async (userEmail) => {
+    try{
+      const emailEncoded = encodeURIComponent(userEmail);
+      const fetchURL = `http://localhost:5000/getUserInformation?email=${emailEncoded}`;
+
+      const response = await fetch(fetchURL, {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(values),
       });
       const data = await response.json();
-      if (response.ok) {
-        console.log('Login successful', data);
-        navigate('/administrator');
+  
+      if(response.ok){
+        setUserInformation(
+          data.username, 
+          data.firstName, 
+          data.middleName, 
+          data.lastName, 
+          data.groupKey, 
+          data.idiomGroupKey,
+          data.dateOfBirth,
+          data.profilePhotoURL,
+          data.defaultThemePalette,
+          data.isAdmin,
+          userEmail
+        );
+      }
+/*
+      console.log("----- DATA ------");
+      console.log("Username: " + data.username);
+      console.log("FirstName: " + data.firstName);
+      console.log("MiddleName: " + data.middleName);
+      console.log("LastName: " + data.lastName);
+      console.log("Email: " + userEmail);
+      console.log("GroupKey: " + data.groupKey);
+      console.log("IdiomGroupKey: " + data.idiomGroupKey);
+      console.log("DateOfBirth: " + data.dateOfBirth);
+      console.log("ProfilePhotoURL: " + data.profilePhotoURL);
+      console.log("DefaultThemePalette: " + data.defaultThemePalette);
+      console.log("IsAdmin: " + data.isAdmin);
+      console.log("----- CLOSE DATA -----");
 
-      } else {
-        console.log('Login failed', data.message);
-        alert('Invalid credentials');
+      console.log("----- ZUSTAND ------");
+      console.log("FirstName: " + user.firstName);
+      console.log("MiddleName: " + user.middleName);
+      console.log("LastName: " + user.lastName);
+      console.log("Email: " + user.email);
+      console.log("GroupKey: " + user.groupKey);
+      console.log("IdiomGroupKey: " + user.idiomGroupKey);
+      console.log("DateOfBirth: " + user.dateOfBirth);
+      console.log("ProfilePhotoURL: " + user.profilePhotoURL);
+      console.log("DefaultThemePalette: " + user.defaultThemePalette);
+      console.log("IsAdmin: " + user.isAdmin);
+      console.log("----- CLOSE ZUSTAND -----");
+*/
+    }catch (error){
+      console.log(error);
+    }
+  }
+
+
+  const handleLogin = async (values) => {
+    try {
+      const emailEncoded = encodeURIComponent(values.email);
+      const fetchURL = `http://localhost:5000/login?email=${emailEncoded}&password=${values.password}`;
+      const response = await fetch(fetchURL, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await response.json();
+
+      if(response.ok) {
+        if(data.checkPasswordValue.status){
+          setUserCredentialsByDataBase(values.email);
+          navigate("/masterPage");
+        }else{
+          console.log(data.checkPasswordValue.message);
+        }
+
+      }else{
+        console.log("Login failed", data.message);
+        alert("Invalid credentials");
       }
     } catch (error) {
       console.error('Error logging in:', error);
-      alert('Error logging in');
     }
   };
 
@@ -61,7 +130,7 @@ const DrawerLogIn = ({ drawerOpenLogIn, toggleDrawerLogIn }) => {
             }
             return errors;
           }}
-          onSubmit={handleLogin} // Llamamos a handleLogin aquí
+          onSubmit={handleLogin}
         >
           {({ isValid, touched, errors }) => (
             <Form className='formGrid'>

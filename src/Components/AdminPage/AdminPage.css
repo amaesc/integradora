@@ -2,7 +2,7 @@
     background: white;
     width: 99vw; height: 98vh;
     display: grid; grid-template-columns: repeat(5, 1fr); 
-    grid-template-rows: minmax(0, 70px) 1fr 1fr minmax(0, 75px);
+    grid-template-rows: minmax(0, 70px) minmax(0, 70px) 1fr 1fr minmax(0, 75px);
     gap: 10px; padding: 10px;
 }
 
@@ -37,48 +37,54 @@
 }
 .Adminbackground .square:nth-child(4) { 
     background-color: #FFD700; 
-    grid-column: 1/6; 
-    grid-row: 2/5;
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
+    grid-column: 1/2; 
+    grid-row: 2/3;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .Adminbackground .square:nth-child(5) { 
     background-color: #FFD700; 
-    grid-column: 1/2; 
-    grid-row: 4/5;
-    width: 80%;
-    height: 80%;
-    border-radius: 15px;
-    margin-left: 15%;
+    grid-column: 2/3; 
+    grid-row: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .Adminbackground .square:nth-child(6) { 
     background-color: #FFD700; 
-    grid-column: 2/4; 
-    grid-row: 4/5;
-    width: 90%;
-    height: 80%;
-    border-radius: 15px;
-    padding-left: 5%;
-    padding-right: 5%;
+    grid-column: 3/4; 
+    grid-row: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .Adminbackground .square:nth-child(7) { 
     background-color: #FFD700; 
-    grid-column: 4/6; 
-    grid-row: 4/5;
-    width: 90%;
-    height: 80%;
-    border-radius: 15px;
+    grid-column: 4/5; 
+    grid-row: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Adminbackground .square:nth-child(8) { 
+    background-color: #FFD700; 
+    grid-column: 5/6; 
+    grid-row: 2/3;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Adminbackground .squarePrincipal { 
+    background-color: #eaeaea; 
+    grid-column: 1/6; 
+    grid-row: 3/6;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+}
 
-    padding-left: 10px;
-    padding-right: 10px;
-}
-.Adminbackground .square:nth-child(7) .movingJSON {
-    font-size: 3rem;
-    color: white;
-}
 
 
 

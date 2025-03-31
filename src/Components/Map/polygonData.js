@@ -107,7 +107,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here.',
         coordinates: [
           [28.661462759508243, -106.0430172115308],
           [28.661492178948816, -106.04304537472547],
@@ -196,7 +196,7 @@ export const walkableArea = [
       {
         name: 'Semi - Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.6620044792408, -106.04268333963299],
           [28.66200212569781, -106.04256934574992],
@@ -225,7 +225,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.6620044792408, -106.04268333963299],
           [28.66200212569781, -106.04256934574992],
@@ -254,7 +254,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.66149103480137, -106.04078848020721],
           [28.661373357010984, -106.04060743109882],
@@ -288,7 +288,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.66101972237687, -106.03987510514611],
           [28.6610344321575, -106.03989857447498],
@@ -302,7 +302,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.661881123666358, -106.03973495972515],
           [28.661784628247133, -106.0394499750175],
@@ -320,7 +320,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.66139190489071, -106.04045113158024],
           [28.661278345716003, -106.04023186099317],
@@ -336,7 +336,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.661100651840123, -106.03988853823911],
           [28.661210680865842, -106.03981813025241],
@@ -355,7 +355,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.66139308166981, -106.03961897623331],
           [28.661407203008967, -106.03964378666667],
@@ -389,7 +389,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.66117976072688, -106.040041866545],
           [28.66119505887534, -106.04002845549992],
@@ -400,7 +400,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.661346863460324, -106.04006801808288],
           [28.661379813263256, -106.04012367391991],
@@ -411,7 +411,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.661392169437594, -106.039859476332],
           [28.661464541281337, -106.03980985546525],
@@ -422,7 +422,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.661242130088276, -106.03981521988324],
           [28.6612338926277, -106.03979979718142],
@@ -433,7 +433,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.661589279629123, -106.03986484075007],
           [28.661583984136364, -106.03984271252571],
@@ -444,7 +444,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.661549857620557, -106.03975285852367],
           [28.661541031795814, -106.03972000146327],
@@ -455,7 +455,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.66121977126625, -106.03977297509131],
           [28.661208003462697, -106.03974615300118],
@@ -466,7 +466,7 @@ export const walkableArea = [
       {
         name: 'Walkable Area',
         type: 'walkableArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can walk here',
         coordinates: [
           [28.661529963597168, -106.0400411738478],
           [28.661539966199538, -106.040031115564],
@@ -1029,7 +1029,7 @@ export const libraryPolygons = [
       {
         name: 'Library',
         type: 'lib',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You are welcome to study here.\n\nOperating hours: 9:00 AM – 3:00 PM, 5:00 PM – 8:00 PM.',
         coordinates: [
           [28.661570103274236, -106.039742087086],
           [28.661594815574794, -106.03973001714544],
@@ -1065,7 +1065,7 @@ export const cafeteriaPolygons = [
       {
         name: 'Cafeteria',
         type: 'caf',
-        additionalInfo: 'N/A',
+        additionalInfo: 'You can eat here.\n\nOperating hours: 8:00 AM – 3:00 PM, 5:00 PM – 8:00 PM.',
         coordinates: [
           [28.66109760766684, -106.03981735946915],
           [28.661051713172068, -106.0397248232582],
@@ -1086,7 +1086,7 @@ export const esplanadePolygons = [
       {
         name: 'Esplanada',
         type: 'funArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'Public zone, typically used for physical activity.',
         coordinates: [
           [28.661461791266838, -106.03999136360214],
           [28.661338229549024, -106.03975063534322],
@@ -1106,7 +1106,7 @@ export const volleyballCourtPolygons = [
       {
         name: 'Volleyball Court',
         type: 'funArea',
-        additionalInfo: 'N/A',
+        additionalInfo: 'Play football, basketball, or volleyball.',
         coordinates: [
           [28.66141406154502, -106.03960414825549],
           [28.661339924498037, -106.03946400283453],
@@ -1127,7 +1127,7 @@ export const palenquePolygons = [
       {
         name: 'Palenque',
         type: 'lab',
-        additionalInfo: 'N/A',
+        additionalInfo: 'Massive events. Cooming Soon',
         coordinates: [
           [28.662269170681352, -106.04132303730067],
           [28.662723183542052, -106.04113013621154],
@@ -1156,7 +1156,7 @@ export const cncPolygons = [
       {
         name: 'CNC',
         type: 'lab',
-        additionalInfo: 'N/A',
+        additionalInfo: 'Industrial Laboratory',
         coordinates: [
           [28.661568319282974, -106.03950622322351],
           [28.6615153643327, -106.03940496983327],
@@ -1300,7 +1300,7 @@ export const parkingPolygons = [
         ]
       },
       {
-        name: 'Parking No. 12',
+        name: 'Personal Parking No. 1',
         type: 'parkingSlot',
         additionalInfo: 'N/A',
         coordinates: [
@@ -1318,7 +1318,7 @@ export const parkingPolygons = [
         ]
       },
       {
-        name: 'Parking No. 13',
+        name: 'Personal Parking No. 2',
         type: 'parkingSlot',
         additionalInfo: 'N/A',
         coordinates: [
@@ -1331,7 +1331,7 @@ export const parkingPolygons = [
         ]
       },
       {
-        name: 'Parking No. 14',
+        name: 'Personal Parking No. 3',
         type: 'parkingSlot',
         additionalInfo: 'N/A',
         coordinates: [
@@ -1344,7 +1344,7 @@ export const parkingPolygons = [
         ]
       },
       {
-        name: 'Parking No. 15',
+        name: 'Personal Parking No. 4',
         type: 'parkingSlot',
         additionalInfo: 'N/A',
         coordinates: [
@@ -1355,7 +1355,7 @@ export const parkingPolygons = [
         ]
       },
       {
-        name: 'Parking No. 16',
+        name: 'Personal Parking No. 5',
         type: 'parkingSlot',
         additionalInfo: 'N/A',
         coordinates: [
@@ -1366,7 +1366,7 @@ export const parkingPolygons = [
         ]
       },
       {
-        name: 'Parking No. 17',
+        name: 'Personal Parking No. 6',
         type: 'parkingSlot',
         additionalInfo: 'N/A',
         coordinates: [
@@ -1377,7 +1377,7 @@ export const parkingPolygons = [
         ]
       },
       {
-        name: 'Parking No. 18',
+        name: 'Personal Parking No. 7',
         type: 'parkingSlot',
         additionalInfo: 'N/A',
         coordinates: [
@@ -1388,7 +1388,7 @@ export const parkingPolygons = [
         ]
       },
       {
-        name: 'Parking No. 19',
+        name: 'Personal Parking No. 8',
         type: 'parkingSlot',
         additionalInfo: 'N/A',
         coordinates: [
@@ -1399,7 +1399,7 @@ export const parkingPolygons = [
         ]
       },
       {
-        name: 'Parking No. 20',
+        name: 'Personal Parking No. 9',
         type: 'parkingSlot',
         additionalInfo: 'N/A',
         coordinates: [
@@ -1410,7 +1410,7 @@ export const parkingPolygons = [
         ]
       },
       {
-        name: 'Parking No. 21',
+        name: 'Personal Parking No. 10',
         type: 'parkingSlot',
         additionalInfo: 'N/A',
         coordinates: [
@@ -1421,7 +1421,7 @@ export const parkingPolygons = [
         ]
       },
       {
-        name: 'Parking No. 22',
+        name: 'Personal Parking No. 11',
         type: 'parkingSlot',
         additionalInfo: 'N/A',
         coordinates: [
@@ -1432,7 +1432,7 @@ export const parkingPolygons = [
         ]
       },
       {
-        name: 'Parking No. 23',
+        name: 'Personal Parking No. 12',
         type: 'parkingSlot',
         additionalInfo: 'N/A',
         coordinates: [

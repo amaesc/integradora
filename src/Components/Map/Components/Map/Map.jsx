@@ -1,5 +1,5 @@
 import './Map.css';
-
+import { useRef } from "react";
 import * as polygonData from '../../polygonData'
 import { store } from '../../../../Store/bookStore'
 
@@ -16,6 +16,7 @@ import {
   useMap, 
   Marker 
 } from 'react-leaflet';
+import ContainerComponent from '../Container/Container';
 
 
 const RoomLabel = ({ room, zoomManualLevel = 1 }) => {
@@ -49,7 +50,8 @@ const RoomLabel = ({ room, zoomManualLevel = 1 }) => {
 const MapComponent = ({ 
   selectedBuilding, 
   selectedFloor, 
-  setSelectedFloor, 
+  setSelectedFloor,
+  mapRef 
 }
 ) => {
   const { position, setBothActiveRoomAndRoomId } = store(state => state);
@@ -64,6 +66,7 @@ const MapComponent = ({
         scrollWheelZoom={true}
         zoomControl={false}
         className='mapContainerPrincipal'
+        whenCreated={(map) => (mapRef.current = map)}
       >
         <div className='mapContainerDivOne'>
         <div className='mapContainerDivTwo'>
@@ -106,7 +109,12 @@ const MapComponent = ({
             positions={room.coordinates}
             style={{ zIndex: 500 }}
           >
-            <Popup>{room.name}</Popup>
+            <Popup>
+              <h2>{room.name}</h2>
+              {room.additionalInfo !== 'N/A' ? (
+                <p>{room.additionalInfo}</p>
+              ) : null}
+            </Popup>
           </Polygon>
         ))}
 
@@ -133,7 +141,12 @@ const MapComponent = ({
             }}
           >
             <RoomLabel key={index} room={room} zoomManualLevel={1}/>
-            <Popup>{room.name}</Popup>
+            <Popup>
+              <h2>{room.name}</h2>
+              {room.additionalInfo !== 'N/A' ? (
+                <p>{room.additionalInfo}</p>
+              ) : null}
+            </Popup>
           </Polygon>
         ))}
         {/* ESPLANADE */}
@@ -150,7 +163,12 @@ const MapComponent = ({
             }}
           >
           <RoomLabel key={index} room={room} zoomManualLevel={1}/>
-          <Popup>{room.name}</Popup>
+          <Popup>
+              <h2>{room.name}</h2>
+              {room.additionalInfo !== 'N/A' ? (
+                <p>{room.additionalInfo}</p>
+              ) : null}
+            </Popup>
           </Polygon>
         ))}
         {/* CAFETERIA */}
@@ -167,7 +185,12 @@ const MapComponent = ({
             }}
           >
             <RoomLabel key={index} room={room} zoomManualLevel={1}/>
-            <Popup>{room.name}</Popup>
+            <Popup>
+              <h2>{room.name}</h2>
+              {room.additionalInfo !== 'N/A' ? (
+                <p>{room.additionalInfo}</p>
+              ) : null}
+            </Popup>
           </Polygon>
         ))}
         {/* VOLLEYBALL */}
@@ -184,7 +207,12 @@ const MapComponent = ({
             }}
           >
             <RoomLabel key={index} room={room} zoomManualLevel={1}/>
-            <Popup>{room.name}</Popup>
+            <Popup>
+              <h2>{room.name}</h2>
+              {room.additionalInfo !== 'N/A' ? (
+                <p>{room.additionalInfo}</p>
+              ) : null}
+            </Popup>
           </Polygon>
         ))}
         {/* PALENQUE */}
@@ -201,7 +229,12 @@ const MapComponent = ({
             }}
           >
             <RoomLabel key={index} room={room} zoomManualLevel={1.5}/>
-            <Popup>{room.name}</Popup>
+            <Popup>
+              <h2>{room.name}</h2>
+              {room.additionalInfo !== 'N/A' ? (
+                <p>{room.additionalInfo}</p>
+              ) : null}
+            </Popup>
           </Polygon>
         ))}
         {/* CNC */}
@@ -218,7 +251,12 @@ const MapComponent = ({
             }}
           >
             <RoomLabel key={index} room={room} zoomManualLevel={1}/>
-            <Popup>{room.name}</Popup>
+            <Popup>
+              <h2>{room.name}</h2>
+              {room.additionalInfo !== 'N/A' ? (
+                <p>{room.additionalInfo}</p>
+              ) : null}
+            </Popup>
           </Polygon>
         ))}
         {/* PARKING */}
@@ -235,7 +273,12 @@ const MapComponent = ({
             }}
           >
             <RoomLabel key={index} room={room} zoomManualLevel={0.5}/>
-            <Popup>{room.name}</Popup>
+            <Popup>
+              <h2>{room.name}</h2>
+              {room.additionalInfo !== 'N/A' ? (
+                <p>{room.additionalInfo}</p>
+              ) : null}
+            </Popup>
           </Polygon>
         ))}
         {/* GENERIC BUILDING TWO */}
@@ -251,7 +294,12 @@ const MapComponent = ({
               click: () => setBothActiveRoomAndRoomId("true", room.name)
             }}
           >
-            <Popup>{room.name}</Popup>
+            <Popup>
+              <h2>{room.name}</h2>
+              {room.additionalInfo !== 'N/A' ? (
+                <p>{room.additionalInfo}</p>
+              ) : null}
+            </Popup>
           </Polygon>
         ))}
         {/* GENERIC BUILDING THREE */}
@@ -267,7 +315,12 @@ const MapComponent = ({
               click: () => setBothActiveRoomAndRoomId("true", room.name)
             }}
           >
-            <Popup>{room.name}</Popup>
+            <Popup>
+              <h2>{room.name}</h2>
+              {room.additionalInfo !== 'N/A' ? (
+                <p>{room.additionalInfo}</p>
+              ) : null}
+            </Popup>
           </Polygon>
         ))}
         {/* GENERIC BUILDING FOUR */}
@@ -283,7 +336,12 @@ const MapComponent = ({
               click: () => setBothActiveRoomAndRoomId("true", room.name)
             }}
           >
-            <Popup>{room.name}</Popup>
+            <Popup>
+              <h2>{room.name}</h2>
+              {room.additionalInfo !== 'N/A' ? (
+                <p>{room.additionalInfo}</p>
+              ) : null}
+            </Popup>
           </Polygon>
         ))}
 

@@ -1,0 +1,51 @@
+.drawerMenu {
+    position: fixed;
+    top: 20%;
+    right: -250px;
+    width: 250px;
+    height: 60%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #D3D3D3;
+    color: white;
+    transition: 0.3s;
+    z-index: 1001;
+}
+
+.drawerContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.drawerSubtitle {
+    background: #4682B4;
+    padding: 2px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.drawerSubtitle div {
+    font-size: 100px;
+}
+
+
+.drawerOptions {
+    background: green;
+    border-radius: 15px;
+    padding: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.drawerOptions:hover{
+    cursor: pointer;
+    background: rgb(50, 205, 50);
+}
+
+.drawerOptionsNoAccess {
+    background: rgb(154, 210, 154);
+    border-radius: 15px;
+    padding: 10px;
+    cursor: not-allowed;
+}

@@ -1,0 +1,21 @@
+.iconPopup {
+    background: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    padding: 15px;
+    gap: 10px;
+}
+
+.iconPopup img {
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.popupText {
+    padding: 20px;
+    text-align: center;
+
+}

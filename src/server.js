@@ -1,137 +1,197 @@
-const express = require('express');
-const prisma = require('./prismaClient');
+const express = require("express");
+const bcrypt = require('bcryptjs');
 const cors = require('cors');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
+const { connectDB, sql } = require("./db");
+
 const app = express();
+const PORT = 5000;
 
 app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/');
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
-  },
-});
 
-const upload = multer({
-  storage: storage,
-  fileFilter: (req, file, cb) => {
-    if (file.mimetype !== 'application/json') {
-      return cb(new Error('Only JSON files are allowed'));
+
+async function checkPassword(inputPassword, storedHash) {
+  try {
+    const isMatch = await new Promise((resolve, reject) => {
+      bcrypt.compare(inputPassword, storedHash, (err, result) => {
+        if (err) reject(err);
+        resolve(result);
+      });
+    });
+    if (isMatch) {
+      return { status: 1, message: "Passwords Match" };
+    } else {
+      return { status: 0, message: "Passwords don't Match" };
     }
-    cb(null, true);
-  },
-});
-
-if (!fs.existsSync('uploads')) {
-  fs.mkdirSync('uploads');
+  } catch (err) {
+    console.error("Error comparing passwords:", err);
+  }
 }
 
-app.get('/api/users', async (req, res) => {
-  const users = await prisma.user.findMany();
-  res.json(users);
-});
-
-app.post('/api/login', async (req, res) => {
-  const { email, password } = req.body;
-  const user = await prisma.user.findUnique({
-    where: { email: email },
-  });
-
-  if (user && user.password === password) {
-    res.json({ message: 'Login successful', user });
-  } else {
-    res.status(401).json({ message: 'Invalid credentials' });
-  }
-});
-
-app.post('/api/upload', upload.single('jsonFile'), async (req, res) => {
+app.get("/getUsers", async (req, res) => {
   try {
-    if (!req.file) {
-      return res.status(400).json({ message: 'No file uploaded' });
-    }
+    let pool = await connectDB();
+    let request = pool.request();
 
-    const filePath = path.join(__dirname, 'uploads', req.file.filename);
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    let result = await request.execute("sp_Get_Users");
 
-    let jsonData;
-    try {
-      jsonData = JSON.parse(fileContent); 
-    } catch (error) {
-      return res.status(400).json({ message: 'Invalid JSON file', error: error.message });
-    }
-
-    const createdJson = await prisma.JsonData.create({
-      data: {
-        data: jsonData,
-      },
-    });
-
-    res.status(200).json({ message: 'JSON file uploaded successfully', data: createdJson });
-    fs.unlinkSync(filePath);
-
-  } catch (error) {
-    console.error('Error uploading JSON file:', error);
-    res.status(500).json({ message: 'Error uploading JSON file', error: error.message });
+    return res.status(200).json({ users: result.recordset }); // Return all users
+  } catch (err) {
+    console.error("Error:", err);
+    return res.status(500).json({ message: "Internal server error", error: err.message });
   }
 });
 
 
-
-
-
-/*
-app.get('/api/json', async (req, res) => {
+app.get("/userExists", async (req,res) => {
   try {
-    const jsonData = await prisma.jsonData.findFirst();
-    if (!jsonData) {
-      return res.status(404).json({ message: 'No JSON encontrado en la base de datos' });
+    let { email } = req.query;
+
+    if(!email) {
+      return res.status(400).json({ message: "Email is required" });
     }
 
-    const filePath = path.join(__dirname, './Language/translation.json');
-    fs.writeFileSync(filePath, JSON.stringify(jsonData.data, null, 2)); // Reemplazar el contenido del archivo
+    let pool = await connectDB();
+    let request = pool.request();
 
-    res.status(200).json({ message: 'JSON reemplazado en el backend', data: jsonData.data });
-  } catch (error) {
-    console.error('Error al obtener o reemplazar el JSON:', error);
-    res.status(500).json({ message: 'Error al reemplazar el JSON', error: error.message });
+    request.input("email", sql.NVarChar(100), email);
+    request.output("status", sql.Bit);
+
+    let result = await request.execute("sp_UserExists_With_Email");
+    return res.status(200).json({ status: result.output.status});
+
+  }catch (err){
+    console.error("Error:", err);
+    return res.status(500).json({ message: "Internal server error", error: err.message });
   }
-});*/
-app.get('/api/json', async (req, res) => {
+});
+
+
+app.get("/getUserInformation", async (req, res) => {
   try {
-    // Obtiene el último JSON insertado basado en el ID o en la fecha de creación
-    const jsonData = await prisma.jsonData.findFirst({
-      orderBy: {
-        id: 'desc' // Asegúrate de usar el campo correcto para ordenar, por ejemplo, 'id' o 'created_at'
+    if (!req.query.username) {
+      let { email } = req.query;
+
+      if (!email) {
+        return res.status(400).json({ message: "Email is required." });
       }
-    });
 
-    if (!jsonData) {
-      return res.status(404).json({ message: 'No JSON encontrado en la base de datos' });
+      let pool = await connectDB();
+      let request = pool.request();
+
+      request.input("email", sql.NVarChar(100), email);
+      request.output("username", sql.NVarChar(100));
+      request.output("firstName", sql.NVarChar(100));
+      request.output("middleName", sql.NVarChar(100));
+      request.output("lastName", sql.NVarChar(100));
+      request.output("groupKey", sql.NVarChar(100));
+      request.output("idiomGroupKey", sql.NVarChar(100));
+      request.output("dateOfBirth", sql.Date);
+      request.output("profilePhotoURL", sql.NVarChar(255));
+      request.output("defaultThemePalette", sql.Int);
+      request.output("isAdmin", sql.NVarChar(15));
+
+      let result = await request.execute("sp_Get_User_Info");
+
+      if (result.output.firstName) {
+        return res.status(200).json({
+          username: result.output.username,
+          firstName: result.output.firstName,
+          middleName: result.output.middleName,
+          lastName: result.output.lastName,
+          groupKey: result.output.groupKey,
+          idiomGroupKey: result.output.idiomGroupKey,
+          dateOfBirth: result.output.dateOfBirth,
+          profilePhotoURL: result.output.profilePhotoURL,
+          defaultThemePalette: result.output.defaultThemePalette,
+          isAdmin: result.output.isAdmin,
+          status: 1
+        });
+      }else{
+        console.log("Llego username");
+      }
+    } else {
+      return res.status(404).json({ error: "User not found", status: 0 });
     }
 
-    // Definir la ruta del archivo para guardar el JSON
-    const filePath = path.join(__dirname, './Language/translation.json');
-    
-    // Reemplazar el contenido del archivo con el JSON obtenido
-    fs.writeFileSync(filePath, JSON.stringify(jsonData.data, null, 2));
+  } catch (err) {
+    console.error("Error:", err);
+    return res.status(500).json({ message: "Internal server error", error: err.message });
+  }
+});
 
-    // Responder al cliente con el mensaje y los datos
-    res.status(200).json({ message: 'JSON reemplazado en el backend', data: jsonData.data });
-  } catch (error) {
-    console.error('Error al obtener o reemplazar el JSON:', error);
-    res.status(500).json({ message: 'Error al reemplazar el JSON', error: error.message });
+app.get("/updatePassword", async (req, res) => {
+  try {
+    let { email, password } = req.query;
+
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email and password are required." });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    let pool = await connectDB();
+    let request = pool.request();
+
+    request.input("email", sql.NVarChar(100), email);
+    request.input("newPasswordHash", sql.NVarChar(255), hashedPassword);
+    request.output("status", sql.Bit);
+
+    let result = await request.execute("sp_Set_Users_UpdatePassword");
+
+    if (result.output.status) {
+      console.log("Password updated successfully.");
+      return res.status(200).json({ message: "Password updated successfully." });
+    } else {
+      console.log("An error occurred while updating the password.");
+      return res.status(500).json({ message: "An error occurred while updating the password." });
+    }
+
+  } catch (err) {
+    console.error("Error:", err);
+    return res.status(500).json({ message: "Internal server error", error: err.message });
+  }
+});
+
+app.get("/login", async (req, res) => {
+  try {
+    let { email, password } = req.query;
+
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email and password are required." });
+    }
+
+    let pool = await connectDB();
+    let request = pool.request();
+
+    request.input("email", sql.NVarChar(100), email);
+    request.output("passwordHash", sql.NVarChar(255));
+
+    let result = await request.execute("sp_Get_Users_LoginCredentials");
+
+    if (!result.output.passwordHash) {
+      return res.status(404).json({ error: "User not found", status: 0 });
+    } else {
+      const checkPasswordValue = await checkPassword(password, result.output.passwordHash);
+      return res.json({ checkPasswordValue });
+    }
+
+  } catch (err) {
+    console.error("Database query failed", err);
+    res.status(500).json({ error: "Database query failed", details: err.message });
   }
 });
 
 
 
 
-app.listen(5000, () => {
-  console.log('Server running on port 5000');
+
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
+
+

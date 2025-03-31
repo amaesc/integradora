@@ -1,35 +1,37 @@
 import React from 'react'
 import './AdminPage.css'
 import translations from '../../Language/translation.json'
-import { useLanguage } from '../../Context/LanguageContext';
-
 import FileUpload from './FileUpload/FileUpload';
 import LoadJsonButton from './LoadJsonButton/LoadJsonButton';
+import { store } from '../../Store/bookStore'
+import UsersTable from './Components/Users/Users';
 
 /*FONT AWESOME ICONS*/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faForward, faBackward } from '@fortawesome/free-solid-svg-icons';
+import { faForward, faBackward, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const AdminPage = () => {
 
-    const { language, changeLanguage } = useLanguage();
+    const { language, changeLanguage } = store(state => state);
 
     return (
         <div className='Adminbackground'>
-            <div class="square"> <h1>{translations.Components.AdminPage.TitlePage[language]}</h1></div>
+            <div class="square"> <h1>ADMINISTRATOR</h1></div>
             <div class="square"> <h2>Welcome Alberto</h2></div>
-            <div class="square"> <h1>{translations.Components.AdminPage.Exit[language]}</h1></div>
+            <div class="square"> <h1><FontAwesomeIcon icon={faXmark}/></h1></div>
+
+            <div className="square">Map JSON</div>
+            <div className="square">Idioms JSON</div>
+            <div className="square">Users</div>
+            <div className="square">Make / Remove Admin</div>
+            <div className="square">Edit User</div>
+            <div className='squarePrincipal'>
+                <UsersTable/>
+            </div>
 
             
 
-            <div class="square">
-                <div className="json-box">
-                    <pre>{JSON.stringify(translations, null, 2)}</pre>
-                </div>
-            </div>
-            <div class="square"> <h2>{translations.Components.AdminPage.LastEdit[language]}</h2></div>
-            <div className="square"> <FileUpload/> </div>
-            <div class="square"> <LoadJsonButton/> </div>
+
         </div>
     )
 }

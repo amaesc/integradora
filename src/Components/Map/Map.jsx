@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Map.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,9 +11,12 @@ import MapComponent from './Components/Map/Map';
 import ContainerComponent from './Components/Container/Container';
 import UserDrawerComponent from './Components/UserDrawer/UserDrawer';
 import DrawerComponent from './Components/Drawer/Drawer';
+import PopupComponent from "./Components/Container/Popup/Popup";
+
 import { icon } from 'leaflet';
 
 const Map = () => {
+  const mapRef = useRef();
   const { position } = store(state => state)
 
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -27,17 +30,11 @@ const Map = () => {
 
   const toggleDrawer = () => { setDrawerOpen(!drawerOpen); };
   const toggleUserDrawer = () => { setUserDrawerOpen(!userDrawerOpen); };
-  const toggleUserDrawerToFalse = () => { setUserDrawerOpen(false); };
+  const toggleUserDrawerToFalse = () => { setUserDrawerOpen(false); setDrawerOpen(false)};
 
 
-  const users = [
-    { id: 1, profilePic: "/images/alice.jpg" },
-    { id: 2, profilePic: require("./example.jpg") },
-    { id: 3, profilePic: "/images/charlie.jpg" },
-  ];
-  
-  const userIdToShow = 2; 
-  const user = users.find((u) => u.id === userIdToShow);
+  const { user } = store(state => state);
+  const profilePictureURL = "/userImages/" +  user.profilePhotoURL;
 
   return (
     <div className="principalContainer">
@@ -48,7 +45,7 @@ const Map = () => {
       </div>
 
       <div className="drawer">
-        <div className="icon" onClick={toggleDrawer}>
+        <div className="icon" onClick={() => { toggleDrawer(); setIsUserOverlayVisible(true); }}>
           <FontAwesomeIcon icon={faBars} />
         </div>
       </div>
@@ -58,13 +55,28 @@ const Map = () => {
         <div className='emptySpaceTwoDivInside'><h2>Selected: {position?.roomId}</h2></div>
       </div>
 
-      <DrawerComponent/>
-      <ContainerComponent/>
+      <DrawerComponent
+        drawerOpen={drawerOpen}
+        toggleDrawer={toggleDrawer}
+        setIsUserOverlayVisible={setIsUserOverlayVisible}
+      />
+
+      <ContainerComponent mapRef={mapRef}/>
+
+      <div style={{
+        gridColumn: "3/4", 
+        gridRow: "2",
+        padding: "20px", 
+        zIndex: "1050",
+        maxHeight: "60px"
+      }}>
+        <PopupComponent/>
+      </div>
       
       <div className="userDrawer" onClick={() => { toggleUserDrawer(); setIsUserOverlayVisible(true); }}>
         <div className="userIcon">
           {user ? (
-            <img src={user.profilePic} alt={user.name} />
+            <img src= {profilePictureURL} alt="No img" />
           ) : (
             <FontAwesomeIcon icon={faCircleUser} />
           )}
@@ -88,10 +100,8 @@ const Map = () => {
       <MapComponent 
         selectedBuilding={selectedBuilding} 
         selectedFloor={selectedFloor}
-        selectedRoom={selectedRoom}
-        setSelectedBuilding={setSelectedBuilding} 
         setSelectedFloor={setSelectedFloor}
-        setSelectedRoom={setSelectedRoom}
+        mapRef={mapRef}
       />
     </div>
   );

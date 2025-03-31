@@ -1,18 +1,15 @@
 import './UserDrawer.css'
-
+import { store } from '../../../../Store/bookStore'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose, faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const UserDrawerComponent = ({ userDrawerOpen, toggleUserDrawer, setIsUserOverlayVisible }) => {
-
-  const users = [
-    { id: 1, profilePic: "/images/alice.jpg" },
-    { id: 2, profilePic: require("../../../../userImages/1121150100.jpeg") },
-    { id: 3, profilePic: "/images/charlie.jpg" },
-  ];
   
-  const userIdToShow = 2; 
-  const user = users.find((u) => u.id === userIdToShow);
+  const navigate = useNavigate();
+  const { user } = store(state => state);
+  const profilePictureURL = "/userImages/" +  user.profilePhotoURL;
+  const userId = user.email.split("@")[0];
 
   return (
   <div className={`userDrawerMenu ${userDrawerOpen ? 'open' : ''}`}>       
@@ -22,19 +19,19 @@ const UserDrawerComponent = ({ userDrawerOpen, toggleUserDrawer, setIsUserOverla
           </div>
           <h2>Profile Picture:</h2>
           {user ? (
-              <img src={user.profilePic} alt={user.name} />
+              <img src={profilePictureURL} alt={user.firstName} />
             ) : (
               <FontAwesomeIcon icon={faCircleUser} />
             )}
           <div className='personalInformation'>
-            <p><strong>Name: </strong> Alberto Márquez Escamilla</p>
-            <p><strong>UTCH ID: </strong> 1121150100</p>
-            <p><strong>Group: </strong> TIDBIS31M</p>
-            <p><strong>Language Group: </strong> TerceroAvanzado3_BLOQUE 2_M</p>
+            <p><strong>Name: </strong> {user.firstName} {user.middleName} {user.lastName} </p>
+            <p><strong>UTCH ID: </strong> {userId} </p>
+            <p><strong>Group: </strong> {user.groupKey }</p>
+            <p><strong>Language Group: </strong> {user.idiomGroupKey} </p>
           </div>
 
           <div className="userMenuItems">
-            <p className='logOutButton'>Log out</p>
+          <p className="logOutButton" onClick={() => navigate("/")}> Log out </p>
           </div>
         </div>
       </div>

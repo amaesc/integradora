@@ -24,7 +24,7 @@
     font-size: 19px;
 }
 
-.drawerSignUp {
+.drawerEdit {
     position: fixed; bottom: -100%; left: 35%; right: 0; z-index: 1001; 
     width: 30%; height: 900px;
     border-top-left-radius: 15px;
@@ -35,45 +35,51 @@
     overflow: scroll;
 }
 
-.drawerSquare {
+.drawerSquareEdit {
     background-color: red;
     width: 100%; height: 100%;
     display: flex; text-align: center; justify-content: center; flex-direction: column;
+    font-size: 10px;
+
 }
 
-.drawerSignUp.open .drawerSquare:nth-child(1), .drawerSignUp .drawerSquare:nth-child(1) {
+.drawerSquareEdit h1 {
+    font-size: 2rem;
+}
+
+.drawerEdit.open .drawerSquareEdit:nth-child(1), .drawerEdit .drawerSquareEdit:nth-child(1) {
     background-color: transparent; grid-row: 1/2;
     border-top-left-radius: 15px;
 }
-.drawerSignUp.open .drawerSquare:nth-child(2), .drawerSignUp .drawerSquare:nth-child(2) {
+.drawerEdit.open .drawerSquareEdit:nth-child(2), .drawerEdit .drawerSquareEdit:nth-child(2) {
     background-color: #FF6347; grid-column: 3/4; grid-row: 1/2;
     border-top-right-radius: 15px;
 }
-.drawerSignUp.open .drawerSquare:nth-child(3), .drawerSignUp .drawerSquare:nth-child(3) {
+.drawerEdit.open .drawerSquareEdit:nth-child(3), .drawerEdit .drawerSquareEdit:nth-child(3) {
     background-color: #eaeaea; grid-column: 1/4; grid-row: 2/3;
 }
 
 
 
-.drawerSquare .fontAwesomeIcon{
+.drawerSquareEdit .fontAwesomeIcon{
     cursor: pointer;
 }
 
-.drawerSquare .input{
+.drawerSquareEdit .input{
     width: 90%; height: 90%;
 }
 
-.drawerSquare .input textarea{
+.drawerSquareEdit .input textarea{
     width: 85%; height: 80%;
     border-radius: 15px; border: 0;
     margin: 10px; padding: 10px;
 }
 
-.drawerSignUp.open {
+.drawerEdit.open {
     bottom: 0;
 }
 
-.drawerContentSignUp{
+.drawerContentEdit{
     padding: 20px;
     display: flex; flex-direction: column; justify-content: space-between;
     height: 100%;
@@ -87,7 +93,7 @@
     text-align: right;
 }
 
-.menuItemsSignUp{
+.menuItemsEdit{
     display: flex; flex-direction: column;
     gap: 15px;
 }
