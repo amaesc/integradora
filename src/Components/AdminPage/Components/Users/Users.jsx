@@ -11,7 +11,8 @@ const UsersTable = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:5000/getUsers")
+    //fetch("http://localhost:5000/getUsers")
+    fetch("https://express-production-e5e6.up.railway.app/getUsers")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch users");

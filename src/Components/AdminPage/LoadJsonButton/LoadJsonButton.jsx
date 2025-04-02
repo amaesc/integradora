@@ -7,7 +7,9 @@ const LoadJsonButton = () => {
 
   const handleLoadJson = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/json');
+//      const response = await axios.get('http://localhost:5000/api/json');
+      const response = await axios.get('https://express-production-e5e6.up.railway.app/api/json');
+
       console.log("JSON cargado", response.data);
 
       setJsonData(response.data.data);
@@ -19,8 +21,8 @@ const LoadJsonButton = () => {
   };
 
   return (
-    <div style={{display: "flex", justifyContent: "space-between", color: "white"}}>
-      <button onClick={handleLoadJson}>Cargar JSON desde la base de datos</button>
+    <div style={{display: "flex", justifyContent: "space-between", color: "black"}}>
+      <button onClick={handleLoadJson}>Load JSON from Database</button>
       <div>{message}</div>
     </div>
   );

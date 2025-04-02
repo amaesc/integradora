@@ -1,4 +1,4 @@
-const express = require("express");
+/*const express = require("express");
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
 const { connectDB, sql } = require("./db");
@@ -29,6 +29,20 @@ async function checkPassword(inputPassword, storedHash) {
     console.error("Error comparing passwords:", err);
   }
 }
+
+app.get("/getAuditory", async (req, res) => {
+  try {
+    let pool = await connectDB();
+    let request = pool.request();
+
+    let result = await request.query("SELECT * FROM AuditoryTable");
+
+    return res.status(200).json({ Auditory: result.recordset }); 
+  } catch (err) {
+    console.error("Error:", err);
+    return res.status(500).json({ message: "Internal server error", error: err.message });
+  }
+});
 
 app.get("/getUsers", async (req, res) => {
   try {
@@ -195,3 +209,4 @@ app.listen(PORT, () => {
 });
 
 
+*/

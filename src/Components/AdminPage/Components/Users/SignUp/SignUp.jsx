@@ -19,7 +19,8 @@ const DrawerSignUp = () => {
   const handleSignUp = async (values) => {
     try {
       const emailEncoded = encodeURIComponent(values.email);
-      const fetchURL = `http://localhost:5000/userExists?email=${emailEncoded}`;
+     // const fetchURL = `http://localhost:5000/userExists?email=${emailEncoded}`;
+      const fetchURL = `https://express-production-e5e6.up.railway.app/userExists?email=${emailEncoded}`;
       const response = await fetch(fetchURL, {
         method: 'GET',
         headers: {

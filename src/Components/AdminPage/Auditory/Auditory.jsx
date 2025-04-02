@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import './TranslationsDisplay.css'
+import './Auditory.css'
 
-const TranslationsDisplay = () => {
+const AuditoryDisplay = () => {
   const [translations, setTranslations] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/translations.json')  // Path to JSON file in the public folder
+    //fetch('http://localhost:5000/getAuditory')
+    fetch('https://express-production-e5e6.up.railway.app/getAuditory')
       .then((response) => response.text()) // Get response as text first
       .then((text) => {
         try {
@@ -34,7 +35,7 @@ const TranslationsDisplay = () => {
 
   return (
     <div className="translations-container">
-      <h1>Translations</h1>
+      <h1>Auditory</h1>
       <div className="translations-content">
         <pre>{JSON.stringify(translations, null, 2)}</pre>
       </div>
@@ -42,4 +43,4 @@ const TranslationsDisplay = () => {
   );
 };
 
-export default TranslationsDisplay;
+export default AuditoryDisplay;

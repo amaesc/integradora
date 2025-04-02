@@ -1,4 +1,4 @@
-.translations-container {
+.text-container {
   max-width: 80%;
   margin: 20px auto;
   padding: 20px;
@@ -8,13 +8,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.translations-container h1 {
+.text-container h1 {
   text-align: center;
   font-size: 1.5em;
   color: #333;
 }
 
-.translations-content {
+.text-content {
   max-height: 400px;
   overflow-y: auto;
   background-color: #fff;
@@ -25,7 +25,7 @@
   white-space: pre-wrap; /* For better formatting of long text */
 }
 
-.translations-content pre {
+.text-content pre {
   margin: 0;
   color: #333;
   font-size: 1em;

@@ -19,7 +19,8 @@ const FileUpload = () => {
     formData.append('jsonFile', selectedFile);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/upload', formData, {
+      const response = await axios.post('https://express-production-e5e6.up.railway.app/api/upload', formData, {
+      //const response = await axios.post('http://localhost:5000/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -33,7 +34,7 @@ const FileUpload = () => {
   };
 
   return (
-    <div style={{display: "flex", justifyContent: "space-between", color: "white"}}>
+    <div style={{display: "flex", justifyContent: "space-between", color: "black"}}>
       <input type="file" onChange={onFileChange} accept=".json" />
       <button onClick={onUpload}>Upload</button>
       <div>{message}</div>

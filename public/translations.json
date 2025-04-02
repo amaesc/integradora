@@ -1,0 +1,393 @@
+{
+  "Components": {
+    "AdminPage": {
+      "Exit": {
+        "en": "EXIT",
+        "es": "SALIR",
+        "fr": "SORTIR"
+      },
+      "LastEdit": {
+        "en": "Last Edit: ",
+        "es": "Última Edición: ",
+        "fr": "Dernière Modification: "
+      },
+      "TitlePage": {
+        "en": "ADMIN PAGE",
+        "es": "ADMINISTRADOR",
+        "fr": "ADMINISTRATEUR"
+      },
+      "JSONVersion": {
+        "en": "JSON Version",
+        "es": "Versión de JSON",
+        "fr": "Version JSON"
+      },
+      "ApplyChanges": {
+        "en": "Apply Changes",
+        "es": "Aplicar Cambios",
+        "fr": "Appliquer Les Modifications"
+      },
+      "RefreshDatabase": {
+        "en": "Refresh Database",
+        "es": "Actualizar Base de Datos",
+        "fr": "Actualiser la base de données"
+      }
+    },
+    "LoginSignUp": {
+      "Info": {
+        "en": "INFORMATION",
+        "es": "INFORMACIÓN",
+        "fr": "INFORMATION"
+      },
+      "LogIn": {
+        "en": "LOG IN",
+        "es": "INICIAR SESIÓN",
+        "fr": "SE CONNECTER"
+      },
+      "Drawer": {
+        "Info": {
+          "CreatedBy": {
+            "en": "Created by",
+            "es": "Creado por",
+            "fr": "Rédigé par"
+          },
+          "TitlePage": {
+            "en": "INFORMATION",
+            "es": "INFORMACIÓN",
+            "fr": "INFORMATION"
+          },
+          "SoftwareVersion": {
+            "en": "Software Version",
+            "es": "Versión de Software",
+            "fr": "Version du logiciel"
+          }
+        },
+        "Login": {
+          "Confirm": {
+            "en": "Confirm",
+            "es": "Confirmar",
+            "fr": "Confirmer"
+          },
+          "TitlePage": {
+            "en": "LOG IN",
+            "es": "INICIAR SESIÓN",
+            "fr": "SE CONNECTER"
+          },
+          "ForgotPassword": {
+            "en": "FORGOT PASSWORD?",
+            "es": "RECUPERAR CONTRASEÑA",
+            "fr": "MOT DE PASSE OUBLIÉ?"
+          }
+        },
+        "SignUp": {
+          "Portafolio": {
+            "Laboral": {
+              "en": "Laboral",
+              "es": "Laboral",
+              "fr": "Travail"
+            },
+            "Academic": {
+              "SquareTitle": {
+                "en": "Academic",
+                "es": "Académico",
+                "fr": "Académique"
+              },
+              "InsideOfTheSquare": {
+                "FifthSquare": {
+                  "h1": {
+                    "en": "UTCH BIS Student",
+                    "es": "Estudiante de UTCH BIS",
+                    "fr": "Étudiant en BIS à l'UTCH"
+                  },
+                  "h2": {
+                    "en": "Information Technologies Multiplatform Development",
+                    "es": "Tecnologías de la Información en Desarrollo de Software Multiplataforma",
+                    "fr": "Technologies de l'information Développement Multiplateforme"
+                  }
+                },
+                "FirstSquare": {
+                  "h1": {
+                    "en": "Early Years",
+                    "es": "Primeros Años",
+                    "fr": "Les premières années"
+                  },
+                  "h2": {
+                    "en": "Since 2018",
+                    "es": "Desde 2018",
+                    "fr": "Depuis 2018"
+                  }
+                },
+                "SixthSquare": {
+                  "h1": {
+                    "en": "Attendance At",
+                    "es": "Integrante de",
+                    "fr": "Présence à"
+                  },
+                  "h2": {
+                    "en": "Robotic's Club",
+                    "es": "Club de Robótica",
+                    "fr": "Club de Robotique"
+                  }
+                },
+                "SquareTitle": {
+                  "en": "Academic",
+                  "es": "Académico",
+                  "fr": "Académique"
+                },
+                "FourthSquare": {
+                  "h1": {
+                    "en": "Actuality",
+                    "es": "Actualidad",
+                    "fr": "Actualité"
+                  }
+                },
+                "SecondSquare": {
+                  "h1": {
+                    "en": "Robotic's Club at COBACH 8",
+                    "es": "Club de Robótica en el COBACH 8",
+                    "fr": "Club de robotique au COBACH 8"
+                  },
+                  "h2": {
+                    "en": "Since 2018",
+                    "es": "Desde 2018",
+                    "fr": "Depuis 2018"
+                  }
+                },
+                "ThirthSquare": {
+                  "h1": {
+                    "en": "OMICHH Teacher",
+                    "es": "Maestro de OMICHH",
+                    "fr": "Enseignant OMICHH"
+                  },
+                  "h2": {
+                    "en": "2018 - 2021",
+                    "es": "2018 - 2021",
+                    "fr": "2018 - 2021"
+                  }
+                }
+              }
+            },
+            "Fun Fact": {
+              "SquareTitle": {
+                "en": "Fun Fact",
+                "es": "Dato Divertido",
+                "fr": "Fait Amusant"
+              },
+              "InsideOfTheSquare": {
+                "FifthSquare": {
+                  "h1": {
+                    "en": "So...",
+                    "es": "Entonces...",
+                    "fr": "Donc..."
+                  }
+                },
+                "FirstSquare": {
+                  "h1": {
+                    "en": "My B-Day",
+                    "es": "Mi Cumpleaños",
+                    "fr": "Mes Anniversaires"
+                  },
+                  "h2": {
+                    "en": "September 13",
+                    "es": "Septiembre 12",
+                    "fr": "13 Septembre"
+                  }
+                },
+                "SixthSquare": {
+                  "h1": {
+                    "en": "My B-Day is my profession day!",
+                    "es": "Mi cumpleaños es el día de mi profesión",
+                    "fr": "Mon anniversaire est le jour de ma profession !"
+                  },
+                  "h2": {
+                    "en": "(Every no-leap year)",
+                    "es": "(Cada año no bisiesto)",
+                    "fr": "(Chaque année non bissextile)"
+                  }
+                },
+                "SquareTitle": {
+                  "en": "Fun Fact",
+                  "es": "Dato Divertido",
+                  "fr": "Fait Amusant"
+                },
+                "FourthSquare": {
+                  "h1": {
+                    "en": "Programmer's day",
+                    "es": "Día del programador",
+                    "fr": "Journée des programmeurs"
+                  },
+                  "h2": {
+                    "en": "Celebrated on Day  2⁸",
+                    "es": "Se celebra en el día 2⁸",
+                    "fr": "Célébré le jour 2⁸"
+                  }
+                },
+                "SecondSquare": {
+                  "h1": {
+                    "en": "Day 256",
+                    "es": "Día 256",
+                    "fr": "Jour 256"
+                  },
+                  "h2": {
+                    "en": "Every no leap year equals to my B-Day",
+                    "es": "En cada año no bisiesto es mi cumpleaños",
+                    "fr": "Chaque année non bissextile équivaut à mon anniversaire"
+                  }
+                },
+                "ThirthSquare": {
+                  "h1": {
+                    "en": "2⁸",
+                    "es": "2⁸",
+                    "fr": "2⁸"
+                  },
+                  "h2": {
+                    "en": "Equals to 256",
+                    "es": "Equivale a 256",
+                    "fr": "Équivaut à 256"
+                  }
+                }
+              }
+            },
+            "Personal": {
+              "en": "Personal",
+              "es": "Personal",
+              "fr": "Personelle"
+            },
+            "My Future": {
+              "en": "My Future",
+              "es": "Mi Futuro",
+              "fr": "Mon avenir"
+            },
+            "TitlePage": {
+              "en": "ABOUT ME",
+              "es": "SOBRE MÍ",
+              "fr": "SUR MOI"
+            },
+            "My present": {
+              "en": "My present",
+              "es": "Mi presente",
+              "fr": "Mon Cadeau"
+            },
+            "Achivements": {
+              "SquareTitle": {
+                "en": "Achivements",
+                "es": "Logros",
+                "fr": "Réalisations"
+              },
+              "InsideOfTheSquare": {
+                "FifthSquare": {
+                  "h1": {
+                    "en": "SOLARCYT - EMPRENDAY Champion",
+                    "es": "SOLARCYT - EMPRENDAY Campeón",
+                    "fr": "SOLARCYT - EMPRENDAY Campeón"
+                  },
+                  "h2": {
+                    "en": "Latinoamerican Programming Contest",
+                    "es": "Concurso Latinoaméricano de Programación",
+                    "fr": "Concours de programmation latino-américain"
+                  }
+                },
+                "FirstSquare": {
+                  "h1": {
+                    "en": "OMICHH Selective",
+                    "es": "Selectivo OMICHH",
+                    "fr": "OMICHH Sélectif"
+                  },
+                  "h2": {
+                    "en": "Mexican Olympiad of Informatics in Chihuahua",
+                    "es": "Olimpiada Mexicana de Informática de Chihuahua",
+                    "fr": "Olympiade Mexicaine d'Informatique de Chihuahua"
+                  }
+                },
+                "SixthSquare": {
+                  "h1": {
+                    "en": "Be Alive",
+                    "es": "Estar Vivo",
+                    "fr": "Être vivant"
+                  }
+                },
+                "SquareTitle": {
+                  "en": "Achivements",
+                  "es": "Logros",
+                  "fr": "Réalisations"
+                },
+                "FourthSquare": {
+                  "h1": {
+                    "en": "ICPC Mexican Selective",
+                    "es": "Selectivo Mexicano para ICPC",
+                    "fr": "ICPC Mexicano Selectivo"
+                  },
+                  "h2": {
+                    "en": "International Collegiate Programming Contest",
+                    "es": "Concurso Internacional de Programación Colegiada",
+                    "fr": "Concours international de programmation collégiale"
+                  }
+                },
+                "SecondSquare": {
+                  "h1": {
+                    "en": "OMI Attendance",
+                    "es": "Participación en la OMI",
+                    "fr": "OMI attendance"
+                  },
+                  "h2": {
+                    "en": "National Olympiad of Informatics in Mexico",
+                    "es": "Olimpiada Nacional de Informática en México",
+                    "fr": "Olympiades nationales d'informatique au Mexique"
+                  }
+                },
+                "ThirthSquare": {
+                  "h1": {
+                    "en": "OMI Champion",
+                    "es": "Campeón de la OMI",
+                    "fr": "Champion OMI"
+                  },
+                  "h2": {
+                    "en": "One of the best performances",
+                    "es": "Uno de los mejores rendimientos",
+                    "fr": "Une des meilleures performances"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ContactUs": {
+          "TitlePage": {
+            "en": "CONTACT ME",
+            "es": "CONTACTAME",
+            "fr": "CONTACTEZ-NOUS"
+          },
+          "LeaveMessage": {
+            "en": "LEAVE ME A MESSAGE!",
+            "es": "¡MANDAME UN MENSAJE!",
+            "fr": "LAISSE MOI UN MESSAGE!"
+          },
+          "CreateMessage": {
+            "en": "Create Message",
+            "es": "Crear mensaje",
+            "fr": "Créer un message"
+          }
+        }
+      },
+      "AboutMe": {
+        "en": "ABOUT ME",
+        "es": "SOBRE MÍ",
+        "fr": "SUR MOI"
+      },
+      "SignUp": {
+        "en": "SIGN UP",
+        "es": "REGISTRARSE",
+        "fr": "ENREGISTER"
+      },
+      "Welcome": {
+        "en": "Welcome",
+        "es": "Bienvenido",
+        "fr": "Bienvenue"
+      },
+      "ContactMe": {
+        "en": "CONTACT ME",
+        "es": "CONTACTAME",
+        "fr": "CONTACTEZ-MOI"
+      }
+    }
+  }
+}

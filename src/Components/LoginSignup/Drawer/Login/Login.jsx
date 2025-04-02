@@ -77,7 +77,9 @@ const DrawerLogIn = ({ drawerOpenLogIn, toggleDrawerLogIn }) => {
   const handleLogin = async (values) => {
     try {
       const emailEncoded = encodeURIComponent(values.email);
-      const fetchURL = `http://localhost:5000/login?email=${emailEncoded}&password=${values.password}`;
+//      const fetchURL = `http://localhost:5000/login?email=${emailEncoded}&password=${values.password}`;
+      const fetchURL = `https://express-production-e5e6.up.railway.app/login?email=${emailEncoded}&password=${values.password}`;
+
       const response = await fetch(fetchURL, {
         method: 'GET',
         headers: {
