@@ -15,7 +15,7 @@ const DrawerLogIn = ({ drawerOpenLogIn, toggleDrawerLogIn }) => {
   const setUserCredentialsByDataBase = async (userEmail) => {
     try{
       const emailEncoded = encodeURIComponent(userEmail);
-      const fetchURL = `http://localhost:5000/getUserInformation?email=${emailEncoded}`;
+      const fetchURL = `https://express-production-e5e6.up.railway.app/getUserInformation?email=${emailEncoded}`;
 
       const response = await fetch(fetchURL, {
         method: 'GET',
