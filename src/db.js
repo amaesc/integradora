@@ -23,7 +23,6 @@ async function connectDB() {
 
 module.exports = { connectDB, sql };
 */
-
 /*
 const sql = require("mssql");
 
